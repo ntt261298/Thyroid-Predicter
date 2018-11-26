@@ -1,0 +1,17 @@
+{
+  "name": "thyroidpredicter",
+  "version": "1.0.0",
+  "description": "ML using Python + Nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "TruongNt",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
+  }
+}
