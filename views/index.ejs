@@ -464,9 +464,9 @@
       .then(res => res.json())
       .then(response => {
         let predict_classes = response.prediction[1]
-        if(predict_classes == 0) predict = 'Suy giap';
-        if(predict_classes == 1) predict = 'Cuong giap';
-        if(predict_classes == 2) predict = 'Binh thuong';
+        if(predict_classes == 0) predict = 'Hypothyroidism';
+        if(predict_classes == 1) predict = 'Hyperthyroidism';
+        if(predict_classes == 2) predict = 'Normal';
         document.getElementById('result').value = predict;
         console.log('Success:', JSON.stringify(response))
       })
