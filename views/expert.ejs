@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Thyroid Predicter</title>
+  <link rel="stylesheet" href="diagnose.css">
+</head>
+<body>
+  <div class="container">
+    <div class="menu">
+
+    </div>
+
+    <div class="user">
+      <p class="profile">Your Profile</p>
+      <div class="img"></div>
+      <h3>User name</h3>
+      <p class="carrier">Carrier</p>
+      <button class="upload">Upload New Avatar</button>
+    </br>
+      <button class="delete">Delete</button>
+    </div>
+
+    <div class="option">
+      <p class="profile edit">Edit your option</p>
+      <div class="form age">
+        <label>Age:</label></br>
+        <input type="text" name="age">
+      </div>
+      <div class="form gender">
+        <label>Sex:</label></br>
+        <input type="radio" name="sex" value="1" checked> Male<br>
+        <input type="radio" name="sex" value="0"> Female<br>
+      </div>
+      <div class="form thyroxine">
+        <label>On Thyroxine:</label></br>
+        <input type="radio" name="on_thyroxine" value="1" checked> Yes<br>
+        <input type="radio" name="on_thyroxine" value="0"> No<br>
+      </div>
+      <div class="form query-thyroxine">
+        <label>Query Thyroxine:</label></br>
+        <input type="radio" name="query_thyroxine" value="1" checked> Yes<br>
+        <input type="radio" name="query_thyroxine" value="0"> No<br>
+      </div>
+      <div class="form anti-thyroxine">
+        <label>On Antithyroid Meds:</label></br>
+        <input type="radio" name="on_antithyroid_meds" value="1" checked> Yes<br>
+        <input type="radio" name="on_antithyroid_meds" value="0"> No<br>
+      </div>
+      <div class="form sick">
+        <label>Sick:</label></br>
+        <input type="radio" name="sick" value="1" checked> Yes<br>
+        <input type="radio" name="sick" value="0"> No<br>
+      </div>
+      <div class="form pregnant">
+        <label>Pregnant:</label></br>
+        <input type="radio" name="pregnant" value="1" checked> Yes<br>
+        <input type="radio" name="pregnant" value="0"> No<br>
+      </div>
+      <div class="form thyroxin-surgery">
+        <label>Thyroxine Surgery:</label></br>
+        <input type="radio" name="thyroid_surgery" value="1" checked> Yes<br>
+        <input type="radio" name="thyroid_surgery" value="0"> No<br>
+      </div>
+      <div class="form treat">
+        <label>T131 Treat:</label></br>
+        <input type="radio" name="T131_treat" value="1" checked> Yes<br>
+        <input type="radio" name="T131_treat" value="0"> No<br>
+      </div>
+      <div class="form hypothyroid">
+        <label>Query Hypothyroid:</label></br>
+        <input type="radio" name="query_hypothyroid" value="1" checked> Yes<br>
+        <input type="radio" name="query_hypothyroid" value="0"> No<br>
+      </div>
+      <div class="form hyperthyroid">
+        <label>Query Hyperthyroid:</label></br>
+        <input type="radio" name="query_hyperthyroid" value="1" checked> Yes<br>
+        <input type="radio" name="query_hyperthyroid" value="0"> No<br>
+      </div>
+      <div class="form lithium">
+        <label>Lithium:</label></br>
+        <input type="radio" name="lithium" value="1" checked> Yes<br>
+          <input type="radio" name="lithium" value="0"> No<br>
+      </div>
+      <div class="form goitre">
+        <label>Goitre:</label></br>
+        <input type="radio" name="goitre" value="1" checked> Yes<br>
+        <input type="radio" name="goitre" value="0"> No<br>
+      </div>
+      <div class="form tumor">
+        <label>Tumor:</label></br>
+        <input type="radio" name="tumor" value="1" checked> Yes<br>
+        <input type="radio" name="tumor" value="0"> No<br>
+      </div>
+      <div class="form hyoituitary">
+        <label>Hypoituitary:</label></br>
+        <input type="radio" name="hypoituitary" value="1" checked> Yes<br>
+        <input type="radio" name="hypoituitary" value="0"> No<br>
+      </div>
+      <div class="form psycho">
+        <label>Psych:</label></br>
+        <input type="radio" name="psych" value="1" checked> Yes<br>
+        <input type="radio" name="psych" value="0"> No<br>
+      </div>
+
+    </div>
+    <div class="input">
+      <p class="profile edit-input">Edit your input</p>
+      <div class="form tsh">
+        <label>TSH:</label></br>
+        <input type="text" name="TSH">
+      </div>
+      <div class="form t3">
+        <label>T3:</label></br>
+        <input type="text" name="T3">
+      </div>
+      <div class="form tt4">
+        <label>TT4:</label></br>
+        <input type="text" name="TT4">
+      </div>
+      <div class="form t4u">
+        <label>T4U:</label></br>
+        <input type="text" name="T4U">
+      </div>
+      <div class="form fti">
+        <label>FTI:</label></br>
+        <input type="text" name="FTI">
+      </div>
+      <div class="form">
+        <h2>Result</h2>
+        <select class="prf-select">
+            <option class="prf-option" value="3" selected>Normal</option>
+            <option class="prf-option" value="2">Hyperthyroidism</option>>
+            <option class="prf-option" value="1">Hypothyroidism</option>
+        </select>
+        <div class="submit" style="margin-top: 20px;">
+            <input type="submit" class="submit" onclick="onSubmit()"  value="Submit"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    onSubmit = () => {
+      const sexBox = document.getElementsByName("sex");
+      for (let i = 0; i < sexBox.length; i++) {
+        if (sexBox[i].checked === true){
+            sex = sexBox[i].value;
+        }
+      }
+      const on_thyroxineBox = document.getElementsByName("on_thyroxine");
+      for (let i = 0; i < on_thyroxineBox.length; i++) {
+        if (on_thyroxineBox[i].checked === true){
+            on_thyroxine = on_thyroxineBox[i].value;
+        }
+      }
+      const query_thyroxineBox = document.getElementsByName("query_thyroxine");
+      for (let i = 0; i < query_thyroxineBox.length; i++) {
+        if (query_thyroxineBox[i].checked === true){
+            query_thyroxine = query_thyroxineBox[i].value;
+        }
+      }
+      const on_antithyroid_medsBox = document.getElementsByName("on_antithyroid_meds");
+      for (let i = 0; i < on_antithyroid_medsBox.length; i++) {
+        if (on_antithyroid_medsBox[i].checked === true){
+            on_antithyroid_meds = on_antithyroid_medsBox[i].value;
+        }
+      }
+      const sickBox = document.getElementsByName("sick");
+      for (let i = 0; i < sickBox.length; i++) {
+        if (sickBox[i].checked === true){
+            sick = sickBox[i].value;
+        }
+      }
+      const pregnantBox = document.getElementsByName("pregnant");
+      for (let i = 0; i < sickBox.length; i++) {
+        if (pregnantBox[i].checked === true){
+            pregnant = pregnantBox[i].value;
+        }
+      }
+      const thyroid_surgeryBox = document.getElementsByName("thyroid_surgery");
+      for (let i = 0; i < thyroid_surgeryBox.length; i++) {
+        if (thyroid_surgeryBox[i].checked === true){
+            thyroid_surgery = thyroid_surgeryBox[i].value;
+        }
+      }
+      const T131_treatBox = document.getElementsByName("T131_treat");
+      for (let i = 0; i < T131_treatBox.length; i++) {
+        if (T131_treatBox[i].checked === true){
+            T131_treat = T131_treatBox[i].value;
+        }
+      }
+      const query_hypothyroidBox = document.getElementsByName("query_hypothyroid");
+      for (let i = 0; i < query_hypothyroidBox.length; i++) {
+        if (query_hypothyroidBox[i].checked === true){
+            query_hypothyroid = query_hypothyroidBox[i].value;
+        }
+      }
+      const query_hyperthyroidBox = document.getElementsByName("query_hyperthyroid");
+      for (let i = 0; i < query_hyperthyroidBox.length; i++) {
+        if (query_hyperthyroidBox[i].checked === true){
+            query_hyperthyroid = query_hyperthyroidBox[i].value;
+        }
+      }
+      const lithiumBox = document.getElementsByName("lithium");
+      for (let i = 0; i < lithiumBox.length; i++) {
+        if (lithiumBox[i].checked === true){
+            lithium = lithiumBox[i].value;
+        }
+      }
+      const goitreBox = document.getElementsByName("goitre");
+      for (let i = 0; i < goitreBox.length; i++) {
+        if (goitreBox[i].checked === true){
+            goitre = goitreBox[i].value;
+        }
+      }
+      const tumorBox = document.getElementsByName("tumor");
+      for (let i = 0; i < tumorBox.length; i++) {
+        if (tumorBox[i].checked === true){
+            tumor = tumorBox[i].value;
+        }
+      }
+      const hypoituitaryBox = document.getElementsByName("hypoituitary");
+      for (let i = 0; i < hypoituitaryBox.length; i++) {
+        if (hypoituitaryBox[i].checked === true){
+            hypoituitary = hypoituitaryBox[i].value;
+        }
+      }
+      const psychBox = document.getElementsByName("psych");
+      for (let i = 0; i < psychBox.length; i++) {
+        if (psychBox[i].checked === true){
+            psych = psychBox[i].value;
+        }
+      }
+
+      const age = document.getElementsByName("age")[0].value;
+      const TSH = document.getElementsByName("TSH")[0].value;
+      const T3 = document.getElementsByName("T3")[0].value;
+      const TT4 = document.getElementsByName("TT4")[0].value;
+      const T4U = document.getElementsByName("T4U")[0].value;
+      const FTI = document.getElementsByName("FTI")[0].value;
+      function not(a) {
+        if(a === '1') return '0';
+        if(a === '0') return '1';
+        return;
+      }
+
+      const data = {
+        age: age,
+        sex_0: not(sex),
+        sex_1: sex,
+        on_thyroxine_0: not(on_thyroxine),
+        on_thyroxine_1: on_thyroxine,
+        query_thyroxine_0: not(query_thyroxine),
+        query_thyroxine_1: query_thyroxine,
+        on_antithyroid_meds_0: not(on_antithyroid_meds),
+        on_antithyroid_meds_1: on_antithyroid_meds,
+        sick_0: not(sick),
+        sick_1: sick,
+        pregnant_0: not(pregnant),
+        pregnant_1: pregnant,
+        thyroid_surgery_0: not(thyroid_surgery),
+        thyroid_surgery_1: thyroid_surgery,
+        T131_treat_0: not(T131_treat),
+        T131_treat_1: T131_treat,
+        query_hypothyroid_0: not(query_hypothyroid),
+        query_hypothyroid_1: query_hypothyroid,
+        query_hyperthyroid_0: not(query_hyperthyroid),
+        query_hyperthyroid_1: query_hyperthyroid,
+        lithium_0: not(lithium),
+        lithium_1: lithium,
+        goitre_0: not(goitre),
+        goitre_1: goitre,
+        tumor_0: not(tumor),
+        tumor_1: tumor,
+        hypoituitary_0: not(hypoituitary),
+        hypoituitary_1: hypoituitary,
+        psych_0: not(psych),
+        psych_1: psych,
+        TSH: TSH,
+        T3: T3,
+        TT4: TT4,
+        T4U: T4U,
+        FTI: FTI,
+      };
+
+      fetch('http://localhost:5000/expert', {
+        method: 'POST',
+        body: data,
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then(response => {
+        console.log(response.message);
+      })
+      .catch(error => console.error('Error:', error));
+    }
+  </script>
+</body>
+</html>
