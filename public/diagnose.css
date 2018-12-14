@@ -48,6 +48,7 @@ h3 {
   margin-top: 0;
 }
 .option {
+  margin-bottom: 20px;
   grid-area: option;
   display: grid;
   grid-gap: 30px;

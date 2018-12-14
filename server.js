@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const Train = require('./models/training');
 
@@ -12,6 +13,11 @@ app.use(cors({
   'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
   'preflightContinue': false
 }));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
@@ -29,10 +35,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/expert', function(req, res) {
-  res.render('expert')
+  res.render('expert', {message: ''})
 })
 
 app.post('/expert', function(req, res) {
+  console.log(req.body);
   const newTrain = new Train({
     age: req.body.age,
     sex_0: req.body.sex_0,
@@ -75,56 +82,8 @@ app.post('/expert', function(req, res) {
     .then(() => res.send({message: 'Successfull'}))
 })
 
-// const multer = require('multer');
-// const path = require('path');
-// // disk storage
-// var storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, '/public/uploads')
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.fieldname + '-' + Date.now())
-//   }
-// })
-// // uploads
-// const upload = multer({
-//   storage: storage,
-//   limits: { fieldSize: 100000},
-//   fileFilter: function(req, file, cb) {
-//     checkFile(file,cb);
-//   }
-// })
-//
-// function checkFile(file, cb){
-//   const typeFile = /png|jpge|jpg|gif/;
-//
-//   const extname = typeFile.test(path.extname(file.originalname));
-//
-//   const mimetype = typeFile.test(file.mimetype);
-//
-//   if(mimetype & extname) {
-//     return cb(null, true);
-//   } else {
-//     cb("Error");
-//   }
-// }
-const multer  = require('multer');
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/uploads')
-  },
-  filename: function (req, file, cb) {
-    cb(null, new Date().toISOString().replace(/:/g,'-') + file.originalname);
-  }
-});
 
-const upload = multer({ storage: storage });
-const cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }]);
 
-app.post('/upload', cpUpload, (req, res) => {
-  console.log(req.files.avatar[0].filename);
-  res.render('index', {file: req.files.avatar[0].filename, msg: "Successfull"})
-})
 
 
 app.listen(8080, () => console.log("Server running on port 8080"));

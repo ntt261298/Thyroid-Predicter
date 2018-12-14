@@ -10,19 +10,15 @@
 <body>
   <div class="container">
     <div class="user">
-      <form action="/upload" method="post" enctype="multipart/form-data">
         <p class="profile">Your Profile</p>
         <div class="img">
-          <img src="uploads/<%= typeof file != undefined ? file : '' %>">
+          <img src="uploads\John-Doe.jpg" alt="">
         </div>
-        <h3>User name</h3>
-        <p class="carrier">Carrier</p>
-        <input type="file" name="avatar">
+        <h3>John Doe</h3>
+        <p class="carrier">Developer</p>
         <button type="submit" class="upload">Upload New Avatar</button>
       </br>
-        <%= typeof msg != undefined ? msg : '' %>
         <button class="delete">Delete</button>
-      </form>
     </div>
 
     <div class="option">
@@ -142,103 +138,11 @@
       </div>
       <div class="acu">
         <h2>Accuracy</h2>
-        <p>93.93%</p>
+        <p style="padding: 10px">93.93%</p>
       </div>
     </div>
   </div>
 
-
-
-
-  <!-- <h1>Thyroid Predicter</h1>
-  <h3>Your Information</h3>
-  <div class="input">
-    <div class="form age">
-      <label>Age:</label></br>
-      <input type="text" name="age">
-    </div>
-    <div class="form gender">
-      <label>Sex:</label></br>
-      <input type="radio" name="sex" value="1" checked> Male<br>
-      <input type="radio" name="sex" value="0"> Female<br>
-    </div>
-    <div class="form thyroxine">
-      <label>On Thyroxine:</label></br>
-      <input type="radio" name="on_thyroxine" value="1" checked> Yes<br>
-      <input type="radio" name="on_thyroxine" value="0"> No<br>
-    </div>
-    <div class="form query-thyroxine">
-      <label>Query Thyroxine:</label></br>
-      <input type="radio" name="query_thyroxine" value="1" checked> Yes<br>
-      <input type="radio" name="query_thyroxine" value="0"> No<br>
-    </div>
-    <div class="form anti-thyroxine">
-      <label>On Antithyroid Meds:</label></br>
-      <input type="radio" name="on_antithyroid_meds" value="1" checked> Yes<br>
-      <input type="radio" name="on_antithyroid_meds" value="0"> No<br>
-    </div>
-    <div class="form sick">
-      <label>Sick:</label></br>
-      <input type="radio" name="sick" value="1" checked> Yes<br>
-      <input type="radio" name="sick" value="0"> No<br>
-    </div>
-    <div class="form pregnant">
-      <label>Pregnant:</label></br>
-      <input type="radio" name="pregnant" value="1" checked> Yes<br>
-      <input type="radio" name="pregnant" value="0"> No<br>
-    </div>
-    <div class="form thyroxin-surgery">
-      <label>Thyroxine Surgery:</label></br>
-      <input type="radio" name="thyroid_surgery" value="1" checked> Yes<br>
-      <input type="radio" name="thyroid_surgery" value="0"> No<br>
-    </div>
-    <div class="form treat">
-      <label>T131 Treat:</label></br>
-      <input type="radio" name="T131_treat" value="1" checked> Yes<br>
-      <input type="radio" name="T131_treat" value="0"> No<br>
-    </div>
-    <div class="form hypothyroid">
-      <label>Query Hypothyroid:</label></br>
-      <input type="radio" name="query_hypothyroid" value="1" checked> Yes<br>
-      <input type="radio" name="query_hypothyroid" value="0"> No<br>
-    </div>
-    <div class="form hyperthyroid">
-      <label>Query Hyperthyroid:</label></br>
-      <input type="radio" name="query_hyperthyroid" value="1" checked> Yes<br>
-      <input type="radio" name="query_hyperthyroid" value="0"> No<br>
-    </div>
-    <div class="form lithium">
-      <label>Lithium:</label></br>
-      <input type="radio" name="lithium" value="1" checked> Yes<br>
-        <input type="radio" name="lithium" value="0"> No<br>
-    </div>
-    <div class="form goitre">
-      <label>Goitre:</label></br>
-      <input type="radio" name="goitre" value="1" checked> Yes<br>
-      <input type="radio" name="goitre" value="0"> No<br>
-    </div>
-    <div class="form tumor">
-      <label>Tumor:</label></br>
-      <input type="radio" name="tumor" value="1" checked> Yes<br>
-      <input type="radio" name="tumor" value="0"> No<br>
-    </div>
-    <div class="form hyoituitary">
-      <label>Hypoituitary:</label></br>
-      <input type="radio" name="hypoituitary" value="1" checked> Yes<br>
-      <input type="radio" name="hypoituitary" value="0"> No<br>
-    </div>
-    <div class="form psycho">
-      <label>Psych:</label></br>
-      <input type="radio" name="psych" value="1" checked> Yes<br>
-      <input type="radio" name="psych" value="0"> No<br>
-    </div>
-
-
-  </div>
-  <div class="result">
-    <h2>Your result: </h2>
-    <input type="text" id="result" name="result" disabled>
-  </div> -->
   <script type="text/javascript">
     onSubmit = () => {
       const sexBox = document.getElementsByName("sex");
