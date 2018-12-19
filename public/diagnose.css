@@ -1,238 +1,213 @@
-html {
-  background-color: rgb(210, 200, 203);
-  font-family: sans-serif;
+* {
+box-sizing: border-box;
 }
 
-.container {
-  box-shadow: 0px 0px 20px 0px;
-  -moz-box-shadow: 0px 0px 20px 0px;
-  -webkit-box-shadow: 0px 0px 20px 0px;
-  -o-box-shadow: 0px 0px 20px 0px;
-  -ms-box-shadow: 0px 0px 20px 0px;
+body {
+  color: #fff;
   height: 100%;
-  margin: 30px;
-  background: #fff;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+body#bg-img {
+  background: url("../background.png");
+  background-attachment: fixed;
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+  margin: 0;
+  font-size: 50px;
+}
+
+.main-container {
+  padding: 0 30px 6px 30px;
+  margin-top: 20px;
+  border-bottom: 0.5px solid #7c7c7c;
   display: grid;
-  grid-gap: 40px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    'user option option input input'
+    'user option-1 option-2 input'
 }
 .user {
   grid-area: user;
   text-align: center;
-  border-right: 0.5px solid #bdc2c1;
-  padding: 0 10px;
 }
-img {
-  margin: 0 auto;
-  height: 120px;
+.user img {
   width: 120px;
+  height: 120px;
   border-radius: 50%;
-  background-color: #444;
-  border: 0.5px solid #444;
+  border: 2px solid #009577;
 }
-.profile {
-  font-size: 28px;
-  color: rgb(142, 144, 138);
-}
-h3 {
+.user h3 {
   font-size: 20px;
   margin: 0;
-  padding: 10px 0 6px 0;
 }
-.carrier {
-  color: rgb(142, 144, 138);
+.user p {
   font-size: 15px;
-  text-align: center;
-  margin-top: 0;
+  margin: 0;
 }
-.option {
-  margin-bottom: 20px;
-  grid-area: option;
-  display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    'edit edit'
-    'age age'
-    'gender thyroxine'
-    'query-thyroxine anti-thyroxine'
-    'sick pregnant'
-    'thyronxine-surgery treat'
-    'hypothyroid hyperthyroid'
-    'lithium goitre'
-    'tumor hyoituitary'
-    'psycho psycho'
+.user button {
+  width: 100px;
+  height: 36px;
+  font-size: 12px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 20px;
+}
+button:hover {
+  cursor: pointer;
+}
+.user .upload {
+  border-radius: 16px 0 0 16px;
+  background: #009577;
+}
+.user .delete {
+  border-radius: 0 16px 16px 0;
+  background: #707070;
+}
 
+.option-1 {
+  grid-area: option-1;
+  font-size: 18px;
+}
+label {
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+}
+.form {
+  height: 50px;
+  position: relative;
+}
+.form input[type="text"] {
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #7c7c7c;
+  float: right;
+  width: 80%;
+  color: #fff;
+}
+.radio-form {
+  position: absolute;
+  height: 21px;
+  width: 43px;
+  border-radius: 10px;
+  z-index: -2;
+  right: 0;
+  background-color: #009577;
+}
+.form input[type="radio"] {
+  float: right;
+  opacity: 0;
+  cursor: pointer;
+}
+.form .checkmark-1 {
+  position: absolute;
+  right: 22px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+  z-index: -1;
+  display: none;
+}
+.form input:nth-of-type(2):checked ~ .checkmark-1 {
+  display: block
+}
+.form input:nth-of-type(1):checked ~ .checkmark-2 {
+  display: block
+}
+.form input:nth-of-type(1):checked ~ .radio-form {
+  display: none;
+}
+.form input:nth-of-type(2):checked ~ .radio-form {
+  display: none;
+}
+.form .checkmark-2 {
+  position: absolute;
+  right: 0px;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+  z-index: -1;
+  display: none;
+}
+
+.option-2 {
+  grid-area: option-2;
 }
 .input {
   grid-area: input;
-  display: grid;
-  grid-gap: 20px;
-  text-align: center;
-  border-left: 0.5px solid #bdc2c1;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-areas:
-    'edit-input'
-    'tsh'
-    't3'
-    'tt4'
-    't4u'
-    'fti'
-    'submit'
 }
-.edit-input {
-  grid-area: edit-input
-}
-.submit input[type="submit"] {
-  grid-area: submit;
-  width: 150px;
-  color: #fff;
-  padding: 5px;
-  font-weight: bold;
+.input input[type="submit"] {
+  width: 129px;
+  height: 40px;
   border-radius: 20px;
-  border: 0.5px rgb(60, 59, 59) solid;
-  background: rgba(20, 97, 212, 0.82);
-}
-.submit input[type="submit"]:hover {
-  cursor: pointer;
-}
-.form input[type="text"]{
-  border-radius: 20px;
-  padding: 5px;
   border: none;
-  border-bottom: 0.5px solid #bdc2c1;
+  background: #009577;
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.submit {
   text-align: center;
 }
-.form input[type="text"]:focus {
-  border-bottom: 2px solid #bdc2c1;
-  transition: 0.25s;
-  transition-timing-function: ease-in;
-  border: 0.5px rgb(60, 59, 59) solid;
-}
-.upload {
-  width: 200px;
-  padding: 10px;
-  border-radius: 20px;
-  background-color: rgba(20, 97, 212, 0.82);
-  color: #fff;
-  font-weight: bold;
-  border: 0.5px rgb(60, 59, 59) solid;
-}
-.upload:hover {
+.input input[type="submit"]:hover {
   cursor: pointer;
-}
-.delete {
-  background: #fff;
-  padding: 5px;
-  margin-top: 20px;
-  border-radius: 20px;
-  border: 0.5px rgb(60, 59, 59) solid;
-  width: 100px;
-  color: rgb(82, 84, 81);
-}
-.delete:hover {
-  cursor: pointer;
-  color: #fff;
-  background: rgb(82, 84, 81);
-  transition: 0.25s ease-in;
-}
-.age {
-  grid-area: age
-}
-.gender {
-  grid-area: gender
-}
-.thyroxine {
-  grid-area: thyroxine
-}
-.query-thyroxine {
-  grid-area: query-thyroxine
-}
-.anti-thyroxine {
-  grid-area: anti-thyroxine
-}
-.sick {
-  grid-area: sick
-}
-.pregnant {
-  grid-area: pregnant
-}
-.thyroxine-surgery {
-  grid-area: thyroxine-surgery
-}
-.treat {
-  grid-area: treat
-}
-.hypothyroid {
-  grid-area: hypothyroid
-}
-.hyperthyroid {
-  grid-area: hyperthyroid
-}
-.lithium {
-  grid-area: lithium
-}
-.goitre {
-  grid-area: goitre
-}
-.tumor {
-  grid-area: tumor
-}
-.hypoituitary {
-  grid-area: hypoituitary
-}
-.psych {
-  grid-area: psych
-}
-.tsh {
-  grid-area: tsh;
-}
-.t3 {
-  grid-area: t3
-}
-.tt4 {
-  grid-area: tt4
-}
-.t4u {
-  grid-area: t4u
-}
-.fti {
-  grid-area: fti
-}
-.edit {
-  grid-area: edit
-}
-label {
-  font-weight: bold;
-  font-size: 15px;
-  margin-bottom: 10px;
 }
 .result {
-  margin-bottom: 30px;
+  margin-top: 30px;
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
-    'rs acu'
+    'left rs acu right'
+}
+.result span {
+  font-size: 25px;
+  font-weight: bold;
+}
+#result {
+  color: #fff;
+  font-size: 15px;
+  width: 180px;
+  padding: 5px;
+  border-radius: 20px;
+  background: transparent;
+  border: 1px solid #009577;
+  float: right;
+  text-align: center;
+  font-size: 15px;
+}
+.acu-number {
+  width: 115px;
+  padding: 5px;
+  border-radius: 20px;
+  background: transparent;
+  border: 1px solid #009577;
+  float: right;
+  text-align: center;
+  font-size: 15px;
+}
+.left {
+  grid-area: left;
 }
 .rs {
   grid-area: rs;
-  text-align: center;
 }
 .acu {
   grid-area: acu;
-  text-align: center;
 }
-.result input[type="text"] {
-  border-radius: 20px;
-  padding: 10px;
-  border: 0.5px rgb(60, 59, 59) solid;
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
+.right {
+  grid-area: right;
 }
+
 .prf-select {
     background: #444;
     color: #ffffff;
@@ -246,4 +221,17 @@ label {
 .prf-option{
     font-size: 15px;
     font-weight: normal;
+}
+.acu .submit {
+  width: 129px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  background: #009577;
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+.acu .submit:hover {
+  cursor: pointer;
 }
